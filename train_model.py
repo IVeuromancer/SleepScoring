@@ -55,9 +55,10 @@ def train():
 	X_EEG2 = np.array(EEG2)
 
 	EMG = []
+	factor = np.max(np.array(train_CH3))
 	for array in train_CH3:
 	    max_abs = max(abs(array))
-	    EMG.append(array/max_abs)
+	    EMG.append(array/factor) #max_abs
 	X_EMG = np.array(EMG)
 
 	y = np.array(train_scores)
@@ -65,7 +66,7 @@ def train():
 
 	history = model.fit({'EEG1':X_EEG1, 'EEG2':X_EEG2, 'EMG': X_EMG},
 	                    {'outputs': y},
-	    epochs=100
+	    epochs=200
 	)
 	fig = plt.figure(figsize = [10,5])
 	# plt.style.use('dark_background')
