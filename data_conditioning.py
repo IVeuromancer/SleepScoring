@@ -31,8 +31,8 @@ def load_edf():
 	        scores_converted.append(2)
 	    elif scores_array[x]==255: # unscored
 	        scores_converted.append(-2)
-	all_scores = scores_converted[0:4384] # 4384: total number of epochs
-	array_scores = np.array(all_scores).reshape(4384,1)
+	all_scores = scores_converted[0:8460] # 8460: total number of epochs
+	array_scores = np.array(all_scores).reshape(8460,1)
 
 	CH1 = []
 	CH2 = []
@@ -48,8 +48,8 @@ def load_edf():
 	train_CH2 = []
 	train_CH3 = []
 	train_scores = []
-	list_of_numbers = list(range(4384))
-	for i in range(2630): #60% of 4384
+	list_of_numbers = list(range(8460))
+	for i in range(5076): #60% of 8460
 	    num = list_of_numbers.pop(randrange(len(list_of_numbers)))
 	    train_CH1.append(CH1[num])
 	    train_CH2.append(CH2[num])
@@ -60,7 +60,7 @@ def load_edf():
 	dev_CH2 = []
 	dev_CH3 = []
 	dev_scores = []
-	for i in range(877): #20% of 4384
+	for i in range(1692): #20% of 8460
 	    num = list_of_numbers.pop(randrange(len(list_of_numbers)))
 	    dev_CH1.append(CH1[num])
 	    dev_CH2.append(CH2[num])
@@ -71,7 +71,7 @@ def load_edf():
 	test_CH2 = []
 	test_CH3 = []
 	test_scores = []
-	for i in range(877): #20% of 4384
+	for i in range(1692): #20% of 8460
 	    num = list_of_numbers.pop(randrange(len(list_of_numbers)))
 	    test_CH1.append(CH1[num])
 	    test_CH2.append(CH2[num])
@@ -95,6 +95,8 @@ def load_edf():
 
 	return [train_CH1, train_CH2, train_CH3, train_scores, dev_CH1, dev_CH2, dev_CH3, dev_scores, 
 	test_CH1, test_CH2, test_CH3, test_scores]
+
+	
 
 
 

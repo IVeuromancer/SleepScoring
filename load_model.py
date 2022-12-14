@@ -13,24 +13,25 @@ test_CH2 = np.load('test_data/test_CH2.npy')
 test_CH3 = np.load('test_data/test_CH3.npy')
 test_scores = np.load('test_data/test_scores.npy')
 
-EEG1 = []
-for array in test_CH1:
-    max_abs = max(abs(array))
-    EEG1.append(array/max_abs)
-X_EEG1 = np.array(EEG1)
+factor = 0.0006
+# EEG1 = []
+# for array in test_CH1:
+#     max_abs = max(abs(array))
+#     EEG1.append(array/max_abs)
+X_EEG1 = np.array(test_CH1)/factor
 
-EEG2 = []
-for array in test_CH2:
-    max_abs = max(abs(array))
-    EEG2.append(array/max_abs)
-X_EEG2 = np.array(EEG2)
+# EEG2 = []
+# for array in test_CH2:
+#     max_abs = max(abs(array))
+#     EEG2.append(array/max_abs)
+X_EEG2 = np.array(test_CH2)/factor
 
-EMG = []
-factor = np.max(np.array(train_CH3))
-for array in test_CH3:
-    max_abs = max(abs(array))
-    EMG.append(array/factor) #max_abs
-X_EMG = np.array(EMG)
+# EMG = []
+# factor = np.max(np.array(test_CH3))
+# for array in test_CH3:
+#     max_abs = max(abs(array))
+#     EMG.append(array/factor) #max_abs
+X_EMG = np.array(test_CH3)/factor
 
 X_EMG_plot = test_CH3*1000000
 
@@ -72,7 +73,7 @@ for data1, data2, data3_plot, data3, datay in zip(X_EEG1, X_EEG2, X_EMG_plot, X_
 	ax[2].set_xlim(0,10)
 	ax[2].set_xticks([0,10])
 	for x in range(2):
-		ax[x].set_ylim(-2,2)
+		ax[x].set_ylim(-1,1)
 		ax[x].set_yticks([-1,0,1])
 		ax[x].set_xlim(0,10)
 		ax[x].set_xticks([0,10])
@@ -123,7 +124,7 @@ for data1, data2, data3_plot, data3, datay in zip(X_EEG1, X_EEG2, X_EMG_plot, X_
 	prediction_label.destroy()
 	score_label.destroy()
 
-	time.sleep(1)
+	time.sleep(5)
 
 # yhat = np.array(y_hat).reshape(len(y_hat),1)
 root.mainloop()

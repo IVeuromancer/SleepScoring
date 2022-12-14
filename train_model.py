@@ -42,24 +42,26 @@ def train():
 	dev_scores = np.load('test_data/dev_scores.npy')
 
 	model = get_compiled_model()
-	EEG1 = []
-	for array in train_CH1:
-	    max_abs = max(abs(array))
-	    EEG1.append(array/max_abs)
-	X_EEG1 = np.array(EEG1)
 
-	EEG2 = []
-	for array in train_CH2:
-	    max_abs = max(abs(array))
-	    EEG2.append(array/max_abs)
-	X_EEG2 = np.array(EEG2)
+	factor = 0.0006
+	# EEG1 = []
+	# for array in train_CH1:
+	#     max_abs = max(abs(array))
+	#     EEG1.append(array/max_abs)
+	X_EEG1 = np.array(train_CH1)/factor
 
-	EMG = []
-	factor = np.max(np.array(train_CH3))
-	for array in train_CH3:
-	    max_abs = max(abs(array))
-	    EMG.append(array/factor) #max_abs
-	X_EMG = np.array(EMG)
+	# EEG2 = []
+	# for array in train_CH2:
+	#     max_abs = max(abs(array))
+	#     EEG2.append(array/max_abs)
+	X_EEG2 = np.array(train_CH2)/factor
+
+	# EMG = []
+	# factor = np.max(np.array(train_CH3))
+	# for array in train_CH3:
+	#     max_abs = max(abs(array))
+	#     EMG.append(array/factor) #max_abs
+	X_EMG = np.array(train_CH3)/factor
 
 	y = np.array(train_scores)
 
