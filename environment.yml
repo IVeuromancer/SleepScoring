@@ -1,0 +1,21 @@
+name: SleepScoring
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - joblib
+  - mne
+  - pytorch
+  - pyserial
+  - cffi
+  - jupyter
+  - pip
+  - pip:
+      - tdt
