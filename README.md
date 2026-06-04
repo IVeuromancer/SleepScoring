@@ -8,6 +8,13 @@ CNN pipeline for automatic sleep stage scoring (Wake / NREM / REM) from mouse EE
 - **Input**: 4-channel EEG/EMG, 1280 samples per epoch
 - **Real-time interface**: Serial + TDT Python API (`tdt`)
 
+## Environment
+
+```bash
+conda env create -f environment.yml
+conda activate SleepScoring
+```
+
 ## Project structure
 
 ```
