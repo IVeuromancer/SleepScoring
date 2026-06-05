@@ -19,22 +19,19 @@ conda activate SleepScoring
 
 ```
 train/
-  model.py         — 1D CNN classifier (4-channel input → Wake/NREM/REM)
-  dataset.py       — dataset loading and splitting
-  preprocessing.py — signal preprocessing and normalization
-  train.py         — training script
-  utils.py         — shared utilities
-
+├── model.py         — 1D CNN classifier (4-channel input → Wake/NREM/REM)
+├── dataset.py       — dataset loading and splitting
+├── preprocessing.py — signal preprocessing and normalization
+├── train.py         — training script
+└── utils.py         — shared utilities
 inference/
-  inference.py             — batch inference from .edf files via MNE
-  convert_scores_to_tsv.py — convert .npy score arrays to .tsv
-  model.py                 — model definition
-  utils.py                 — scaler loading
-
+├── inference.py             — batch inference from .edf files via MNE
+├── convert_scores_to_tsv.py — convert .npy score arrays to .tsv
+├── model.py                 — model definition
+└── utils.py                 — scaler loading
 realtime_scoring/
-  neuralnet_2mice.py — live scoring pipeline with TDT streaming,
-                       tkinter GUI, and optogenetic trigger output
-
+└── neuralnet_2mice.py — live scoring pipeline with TDT streaming,
+                         tkinter GUI, and optogenetic trigger output
 saved_models/      — pretrained .pth checkpoint
 scalers/           — per-channel StandardScaler .pkl files
 scores/            — output .npy arrays and .tsv files
